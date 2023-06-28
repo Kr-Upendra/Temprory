@@ -33,7 +33,7 @@ app.get("/:search", async (req, res) => {
     const response = await axios.get(url, options);
     res.status(200).json({
       status: "success",
-      message: "SOMETHING GOOD HEPPEN LET'S SEE!",
+      message: "SOMETHING GOOD HEPPENNING LET'S SEE!",
       response: response.data.items,
     });
   } catch (err) {
