@@ -6,6 +6,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "Welcome to youtube search api!",
+  });
+});
+
 app.get("/:search", async (req, res) => {
   try {
     const { search } = req.params;
@@ -36,6 +43,13 @@ app.get("/:search", async (req, res) => {
       error: err,
     });
   }
+});
+
+app.use("*", (req, res) => {
+  res.status(404).json({
+    status: "fail",
+    message: "SORRY THIS ROUTE DOES NOT EXIST ON THIS SERVER!",
+  });
 });
 
 module.exports = app;
